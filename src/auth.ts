@@ -1,8 +1,16 @@
-import {NextFunction, Response} from "express";
+import {NextFunction, Response, Request} from "express";
 import {Auth0Id} from "./user.id";
 import {expressjwt, Params} from "express-jwt";
 import {expressJwtSecret, SecretCallbackLong} from "jwks-rsa";
 import {config} from "./config";
+
+//@ts-ignore
+interface AuthRequest extends Request {
+    auth: {
+        sub: string;
+        [key: string]: unknown;
+    };
+}
 
 const createUserAuthMiddleware = (issuerBaseUrl: string) => expressjwt({
     secret: expressJwtSecret({
@@ -23,8 +31,8 @@ type Auth0AuthHandlerParams = {
     storeCredentials: (id: Auth0Id, metadata: Record<string, unknown>) => Promise<void>;
 };
 
-const auth0authHandler = <T>({issuerBaseUrl, logger, forbiddenError, storeCredentials}: Auth0AuthHandlerParams) =>
-    async (req: T, res: Response, next: NextFunction): Promise<void> => {
+const auth0authHandler = ({issuerBaseUrl, logger, forbiddenError, storeCredentials}: Auth0AuthHandlerParams) =>
+    async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
         await createUserAuthMiddleware(issuerBaseUrl)(req, res, (err: string | Error): void => {
             if (err) {
                 logger.error(JSON.stringify(err));
