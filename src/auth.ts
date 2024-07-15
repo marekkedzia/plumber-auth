@@ -28,7 +28,7 @@ type Auth0AuthHandlerParams = {
     issuerBaseUrl: string;
     logger: { error: (message: string) => void }
     forbiddenError: Error;
-    storeCredentials: (id: Auth0Id, metadata: Record<string, unknown>) => Promise<void>;
+    storeCredentials: (id: Auth0Id, metadata: Record<string, unknown>) => void;
 };
 
 const auth0authHandler = ({issuerBaseUrl, logger, forbiddenError, storeCredentials}: Auth0AuthHandlerParams) =>
