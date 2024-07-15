@@ -42,4 +42,4 @@ const auth0authHandler = ({issuerBaseUrl, logger, forbiddenError, storeCredentia
         });
     };
 
-export {auth0authHandler};
+export {auth0authHandler, AuthRequest};

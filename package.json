@@ -1,6 +1,6 @@
 {
   "name": "@marekkedzia/plumber-auth",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "author": "Marek Kedzia",
   "license": "MIT",
