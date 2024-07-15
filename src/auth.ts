@@ -24,7 +24,6 @@ const createUserAuthMiddleware = (issuerBaseUrl: string) => expressjwt({
 } as Params);
 
 type Auth0AuthHandlerParams = {
-    metadataClaim: string;
     issuerBaseUrl: string;
     logger: { error: (message: string) => void }
     forbiddenError: Error;
