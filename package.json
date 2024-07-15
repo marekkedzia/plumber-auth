@@ -1,5 +1,5 @@
 {
-  "name": "@marekkedzia/plumber-aauth",
+  "name": "@marekkedzia/plumber-auth",
   "version": "0.0.0",
   "main": "dist/index.js",
   "author": "Marek Kedzia",
