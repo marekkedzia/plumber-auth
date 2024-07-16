@@ -35,7 +35,7 @@ const auth0authHandler = ({issuerBaseUrl, logger, forbiddenError, storeCredentia
         await createUserAuthMiddleware(issuerBaseUrl)(req, res, (err: string | Error): void => {
             if (err) {
                 logger.error(JSON.stringify(err));
-                throw forbiddenError;
+                next(forbiddenError);
             }
             storeCredentials(Auth0Id(req.auth.sub), req.auth);
             next();
