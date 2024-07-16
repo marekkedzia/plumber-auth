@@ -30,11 +30,10 @@ type Auth0AuthHandlerParams = {
     storeCredentials: (id: Auth0Id, metadata: Record<string, unknown>) => void;
 };
 
-const auth0authHandler = ({issuerBaseUrl, logger, forbiddenError, storeCredentials}: Auth0AuthHandlerParams) =>
+const auth0authHandler = ({issuerBaseUrl, forbiddenError, storeCredentials}: Auth0AuthHandlerParams) =>
     async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
         await createUserAuthMiddleware(issuerBaseUrl)(req, res, (err: string | Error): void => {
             if (err) {
-                logger.error(JSON.stringify(err));
                 next(forbiddenError);
             }
             try {
