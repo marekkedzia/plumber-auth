@@ -1,9 +1,10 @@
 {
   "name": "@marekkedzia/plumber-auth",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "main": "dist/index.js",
   "author": "Marek Kedzia",
   "license": "MIT",
+  "types": "dist/index.d.ts",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
