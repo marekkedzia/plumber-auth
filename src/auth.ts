@@ -37,8 +37,12 @@ const auth0authHandler = ({issuerBaseUrl, logger, forbiddenError, storeCredentia
                 logger.error(JSON.stringify(err));
                 next(forbiddenError);
             }
-            storeCredentials(Auth0Id(req.auth.sub), req.auth);
-            next();
+            try {
+                storeCredentials(Auth0Id(req.auth.sub), req.auth);
+                next();
+            } catch (e) {
+                next(forbiddenError);
+            }
         });
     };
 
