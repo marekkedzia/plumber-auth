@@ -1,6 +1,6 @@
-# @marekkedzia/auth0-auth-handler
+# @marekkedzia/plumber-auth
 
-`@marekkedzia/auth0-auth-handler` is an Express.js middleware library designed for seamless integration with Auth0 for secure authentication and credential management. It provides a robust mechanism for verifying JWT tokens, logging errors, and storing user credentials.
+`@marekkedzia/plumber-auth` is an Express.js middleware library designed for seamless integration with Auth0 for secure authentication and credential management. It provides a robust mechanism for verifying JWT tokens, logging errors, and storing user credentials.
 
 ---
 
@@ -19,7 +19,7 @@
 Install the package via npm:
 
 ```bash
-npm install @marekkedzia/auth0-auth-handler
+npm install @marekkedzia/plumber-auth
 ```
 
 ---
@@ -28,11 +28,11 @@ npm install @marekkedzia/auth0-auth-handler
 
 ### Basic Setup
 
-To integrate `@marekkedzia/auth0-auth-handler` into your Express.js application:
+To integrate `@marekkedzia/plumber-auth` into your Express.js application:
 
 ```typescript
 import express from 'express';
-import { auth0authHandler } from '@marekkedzia/auth0-auth-handler';
+import { auth0authHandler } from '@marekkedzia/plumber-auth';
 
 const app = express();
 
@@ -89,4 +89,4 @@ Passionate about building robust authentication solutions for modern web applica
 
 ## About
 
-`@marekkedzia/auth0-auth-handler` simplifies Auth0 integration for Express.js applications, offering secure JWT validation and credential management with minimal setup.
+`@marekkedzia/plumber-auth` simplifies Auth0 integration for Express.js applications, offering secure JWT validation and credential management with minimal setup.
